@@ -1,0 +1,428 @@
+/* ****************DEFAULTS**************** */
+
+*{
+    font-family: Arial, Helvetica, sans-serif, Helvetica Neue;
+    scroll-behavior: smooth;
+
+    /****For Grid Outline *******/
+    box-sizing: border-box; 
+}
+
+nav, header, footer{
+    display: block;
+
+ }
+body{
+    line-height: 1;
+    color: rgb(230, 230, 230);
+    margin: 0;
+    background: #141d26;
+}
+.container{
+    width: 100%;
+    margin: auto;
+    padding-top: 4%;
+    padding-bottom: 4%;
+}
+.row{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.row::after{
+    display: table;
+    clear: both;
+    content: "";
+}
+.col-1{width: 8.33%;}
+.col-2{width: 16.66%;}
+.col-3{width: 25%;}
+.col-4{width: 33.33%;}
+.col-5{width: 41.66%;}
+.col-6{width: 50%;}
+.col-7{width: 58.33%;}
+.col-8{width: 66.66%;}
+.col-9{width: 75%;}
+.col-10{width: 83.33%;}
+.col-11{width: 91.66%;}
+.col-12{width: 100%;}
+
+/* Row and Columns outlines */
+
+  /* [class*="col-"]{
+    border: 2px solid red; 
+    padding: 15px;
+}     */
+
+/* ***************NavBar****************** */
+
+nav{
+    width: 100%;
+    margin: 0;
+}
+nav ul.navbar{
+    /* background: #141d26;
+    overflow: hidden; */
+    margin: 0;
+    padding: 0;
+}
+ul.navbar li{
+    list-style: none;
+    float: right;
+}
+ul.navbar li.logo{
+    float: left;
+}
+ul.navbar li.logo a.logohome{
+    font-size: 50px;
+    filter: hue-rotate(130deg);
+    background:#03e9f4;
+    margin-left: 40px;
+    margin-top: 20px;
+    color: #141d26;
+    -webkit-box-reflect: below 0.5px linear-gradient(transparent,#0005);
+    box-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 200px #03e9f4;
+}
+ul.navbar li a{
+    position: relative;
+    display: block;
+    margin: 40px 30px;
+    padding: 15px 10px;
+    color: #03e9f4;
+    min-height: 18px;
+    text-transform: uppercase;
+    text-decoration: none;
+    overflow: hidden;
+    transition: 0.5s;
+    letter-spacing: 2px;
+}
+ul.navbar li a:hover{
+    background:#03e9f4;
+    color:black;
+    box-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 200px #03e9f4;
+}
+ul.navbar li a span{
+    position: absolute;
+    display: block;
+}
+ul.navbar li a span:nth-child(1)
+{
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg,transparent,#03e9f4);
+    animation:animate1 1s linear infinite ;
+}    
+@keyframes animate1
+{
+    0%
+    {
+        left: -100%;
+    }
+    50%,100%
+    {
+        left: 100%;
+    }
+}
+ul.navbar li a span:nth-child(2)
+{
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg,transparent,#03e9f4);
+    animation:animate2 1s linear infinite ;
+    animation-delay: 0.25s;
+}    
+@keyframes animate2
+{
+    0%
+    {
+        top: -100%;
+    }
+    50%,100%
+    {
+        top: 100%;
+    }
+}
+ul.navbar li a span:nth-child(3)
+{
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg,transparent,#03e9f4);
+    animation:animate3 1s linear infinite ;
+    animation-delay: 0.5s;
+}    
+@keyframes animate3
+{
+    0%
+    {
+        right: -100%;
+    }
+    50%,100%
+    {
+        right: 100%;
+    }
+}
+ul.navbar li a span:nth-child(4)
+{
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(270deg,transparent,#03e9f4);
+    animation:animate4 1s linear infinite ;
+    animation-delay: 0.75s;
+}    
+@keyframes animate4
+{
+    0%
+    {
+        bottom: -100%;
+    }
+    50%,100%
+    {
+        bottom: 100%;
+    }  
+}
+ul.navbar li.hamburgerIcon{
+        display: none;
+}
+
+
+
+
+/* *****************ReponsiveNavbar******************** */
+@media screen and (max-width: 1001px){
+    ul.navbar li:not(:nth-child(1)){
+        display: none;
+    }
+    ul.navbar li.hamburgerIcon{
+        display: block;
+        font-size: 25px;
+    }
+    ul.navbar.responsive li.hamburgerIcon{
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+    ul.navbar.responsive{
+        position: relative;
+        background-color: #10171f;
+        padding-bottom: 5px;
+        transition: 0.5s;
+    }
+    ul.navbar.responsive li{
+        display: inline;
+        float: none;
+        font-weight: bold;
+    }
+    ul.navbar li a span{
+        display: none;
+    }
+    ul.navbar li.logo a.logohome{
+        display: inline-block;
+        font-size: 47px;
+        filter: hue-rotate(130deg);
+        background:#03e9f4;
+        margin-left: 40px;
+        margin-top: 20px;
+        color: #141d26;
+        box-shadow: 0 0 5px #03e9f4,
+                    0 0 25px #03e9f4,
+                    0 0 50px #03e9f4,
+                    0 0 200px #03e9f4;
+    }
+    ul.navbar.responsive li.logo a.logohome{
+        margin-left: 38%;
+    }
+    ul.navbar.responsive li a{
+        display: flex;
+    }
+}
+
+@media screen and (max-width:500px){
+    ul.navbar.responsive li.logo a.logohome{
+        margin-left: 25%;
+    }
+}
+
+/* *****************Tagline********************* */
+
+h1.tagline-large, .tagline-small{
+    text-align: center;
+    letter-spacing: 2px;
+    opacity: 90%;
+    padding-left: 4%;
+    padding-right: 4%;
+    line-height: 1.5;
+
+}
+.tagline{
+    margin-top: 5%;
+}
+
+/* ****************Download Section************** */
+.fracaspic{
+    width: 95%;
+    margin: auto;
+    border: solid;
+    border-color: rgb(255, 126, 255);
+    border-radius: 10px;
+    height: auto;
+    opacity: 85%;
+}
+.fracaspic:hover{
+    box-shadow: 0 0 5px rgb(255, 126, 255),
+                0 0 25px rgb(255, 126, 255),
+                0 0 50px rgb(255, 126, 255),
+                0 0 200px rgb(255, 126, 255);
+}
+
+.img-left{
+    margin-top: 5%;
+    margin-left: 10%
+}
+.dlbttn-right{
+    padding-left: 40px;
+    padding-top: 100px;
+}
+.dlbttn{
+    position: relative;
+    display: inline-block;
+    margin: 5px 30px;
+    padding: 20px 15px;
+    color: #03e9f4;
+    font-weight: bold;
+    min-height: 18px;
+    text-transform: uppercase;
+    text-align: center;
+    text-decoration: none;
+    overflow: hidden;
+    transition: 0.5s;
+    letter-spacing: 2px;
+    background:#03e9f4;
+    color:black;
+    -webkit-box-reflect: below 0.5px linear-gradient(transparent,#0005);
+    box-shadow: 0 0 5px #03e9f4,
+                0 0 25px #03e9f4,
+                0 0 50px #03e9f4,
+                0 0 200px #03e9f4;
+}
+.dlheader{
+    margin-bottom: 0;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+.dlfooter{
+    font-size: 15px;
+    margin-top: 0;
+    margin-left: 45px;
+    font-style: italic;
+    letter-spacing: 1.5px;
+}
+#totop{
+    width:40px;
+    height:40px;
+    background:#2e4358;
+    color:rgb(49, 47, 47);
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    opacity: 50%;
+    border-radius: 180px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 40px;
+}
+#totop:hover{
+    text-rendering: auto;
+
+}
+
+
+
+
+/* **********Responsive Download Section************ */
+
+@media screen and (max-width: 1013px){
+    .col-8{
+        width: 100%;
+    }
+    .fracaspic{
+        width: 80%;
+    }
+    .img-left{
+        margin-left: 5%;
+        padding-left: 12%;
+    }
+    .col-4{
+        width: 100%;
+    }
+    .dlbttn-right{
+        text-align: center;
+        padding: 0;
+    }
+    .dlfooter{
+        margin-left: 0;
+    }
+}
+
+ @media screen and (max-width: 911px){
+
+    .col-8{
+        width: 100%;}
+
+    .img-left{
+        margin: center;
+    }
+    .fracaspic{
+        margin: auto;
+    }
+
+    .col-4{
+        width: 100%;
+    }
+    .dlbttn-right{
+        text-align: center;
+        padding: 0;
+    }
+    .dlfooter{
+        margin-left: 0;
+    }
+        
+}  
+
+/* ******************About row******************* */
+
+
+
+
+
+/* ********************Footer***************** */
+
+.copyright{
+    opacity: 80%;
+    color:rgb(226, 222, 222);
+    padding-left: 20px;
+    letter-spacing: 1px;
+    font-size: 0.8rem;
+    font-style: italic;
+    padding-bottom: 1em;
+     
+}
+
+
+
+
+
